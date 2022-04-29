@@ -1,0 +1,12 @@
+{
+  "name": "19-authenticate-me",
+  "version": "1.0.0",
+  "description": "![supr-title](https://user-images.githubusercontent.com/68219912/165804347-c4907339-a547-41ca-b93c-4499486f1ddb.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
