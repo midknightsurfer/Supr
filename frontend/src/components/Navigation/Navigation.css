@@ -7,8 +7,8 @@
 }
 
 .nav__img {
-  margin: 10px 25px;
-  width: 70px;
+  margin: 15px 40px 0 40px;
+  width: 100px;
   margin-right: 45vw;
 }
 
@@ -23,7 +23,6 @@
   text-decoration: none;
   font-size: 14pt;
   padding: 0 20px;
-  margin-top: 20px;
   color: white;
 }
 
@@ -96,8 +95,9 @@ button:after {
   background-image: url('../../assets/signupBackground.png');
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 77px -10px;
+  margin: 70px -10px;
   height: 85vh;
+  z-index: 2;
 }
 
 .signup {

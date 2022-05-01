@@ -4,3 +4,16 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+body {
+  transition: background-image 0.5s ease-in-out;
+}
+
+.titleImg {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10vh;
+  width: 500px;
+  opacity: 0.6;
+}
