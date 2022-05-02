@@ -5,10 +5,6 @@
   box-sizing: border-box;
 }
 
-body {
-  transition: background-image 0.5s ease-in-out;
-}
-
 .titleImg {
   display: block;
   margin-right: auto;
@@ -16,4 +12,77 @@ body {
   margin-top: 10vh;
   width: 500px;
   opacity: 0.6;
+}
+
+.cb-slideshow li {
+  list-style: none;
+}
+
+.cb-slideshow li span { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 36s linear infinite 0s; 
+}
+
+@keyframes imageAnimation { 
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  8% { opacity: 1; animation-timing-function: ease-out; }
+  17% { opacity: 1 }
+  25% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes titleAnimation { 
+  0% { opacity: 0 }
+  8% { opacity: 1 }
+  17% { opacity: 1 }
+  19% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+.cb-slideshow li:nth-child(1) span { 
+  background-image: url(./assets/Superhero-1-1.jpg) 
+}
+
+.cb-slideshow li:nth-child(2) span { 
+  background-image: url(./assets/theboys.webp);
+  animation-delay: 6s; 
+}
+
+.cb-slideshow li:nth-child(3) span { 
+  background-image: url(./assets/avengers_2.webp);
+  animation-delay: 12s; 
+}
+
+.cb-slideshow li:nth-child(4) span { 
+  background-image: url(./assets/e6hWKhmXszRLNSvPRHizZ5.jpg);
+  animation-delay: 18s; 
+}
+
+.cb-slideshow li:nth-child(5) span { 
+  background-image: url(./assets/247132.jpg);
+  animation-delay: 24s; 
+}
+
+.cb-slideshow li:nth-child(6) span { 
+  background-image: url(./assets/https___bamsmackpow.com_files_image-exchange_2016_04_ie_42627.jpeg);
+  animation-delay: 30s; 
+}
+
+.cb-slideshow li:nth-child(7) span { 
+  background-image: url(./assets/The-Batman.jpeg);
+  animation-delay: 34s; 
+}
+.cb-slideshow li:nth-child(8) span { 
+  background-image: url(./assets/PFcEYaKOWp8rKVEL.jpg);
+  animation-delay: 38s; 
 }
