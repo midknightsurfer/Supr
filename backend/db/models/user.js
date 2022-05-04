@@ -51,7 +51,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Image, { foreignKey: "userId" });
+    User.hasMany(models.Comment, { foreignKey: "userId" });
   };
 
   User.prototype.toSafeObject = function () {
@@ -68,17 +69,17 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.login = async function ({ credential, password }) {
-    const { Op } = require("sequelize");
-    const user = await User.scope("loginUser").findOne({
+    const { Op } = require('sequelize');
+    const user = await User.scope('loginUser').findOne({
       where: {
         [Op.or]: {
           username: credential,
-          email: credential,
-        },
-      },
+          email: credential
+        }
+      }
     });
     if (user && user.validatePassword(password)) {
-      return await User.scope("currentUser").findByPk(user.id);
+      return await User.scope('currentUser').findByPk(user.id);
     }
   };
 
@@ -87,9 +88,9 @@ module.exports = (sequelize, DataTypes) => {
     const user = await User.create({
       username,
       email,
-      hashedPassword,
+      hashedPassword
     });
-    return await User.scope("currentUser").findByPk(user.id);
+    return await User.scope('currentUser').findByPk(user.id);
   };
 
   
