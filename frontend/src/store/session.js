@@ -40,7 +40,6 @@ export const signup = (user) => async (dispatch) => {
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
-  try {
     const response = await csrfFetch("/api/session", {
       method: "POST",
       body: JSON.stringify({
@@ -53,9 +52,8 @@ export const login = (user) => async (dispatch) => {
       dispatch(setUser(data.user));
       return response;
     }
-  } catch (err) {
-    console.log("in catch block", err);
-  }
+
+
 };
 
 export const logout = () => async (dispatch) => {

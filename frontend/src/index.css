@@ -86,3 +86,21 @@
   background-image: url(./assets/PFcEYaKOWp8rKVEL.jpg);
   animation-delay: 38s; 
 }
+
+.imageContainer {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.imageContainer img {
+  width: 80vw;
+}
+
+#editBox {
+  display: inline-block;
+  position: fixed;
+  width: 80vw;
+  bottom: 410px;
+  left: 100px;
+  height: 140px;
+}

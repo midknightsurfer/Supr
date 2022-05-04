@@ -28,10 +28,10 @@ app.use(
 
 app.use(routes);
 
-app.use((err, _req, res, _next) => {
-  console.error(err.stack);
-  res.status(500).send("Something Broke!");
-});
+// app.use((err, _req, res, _next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Something Broke!");
+// });
 
 app.use((_req, _res, next) => {
   const err = new Error("The requested resource couldn't be found.");

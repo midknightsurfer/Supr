@@ -1,0 +1,23 @@
+.images {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50vh;
+}
+
+.imgContainer img {
+  width: 40vw;
+  height: 20vh;
+  object-fit: cover;
+  border: 2px solid;
+  border-radius: 0 50px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px;
+  margin: 10px;
+}
+
+.imgContainer img:hover {
+  opacity: 0.8;
+}
