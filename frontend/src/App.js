@@ -54,11 +54,11 @@ function App() {
     <>
       {splash}
       <Navigation isLoaded={isLoaded} />
+        <Footer />
       {isLoaded && (
         <Switch>
           <Route exact path="/">
             <UserProfile />
-            <Footer />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

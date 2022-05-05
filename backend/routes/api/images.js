@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { User, Image, Comment } = require("../../db/models");
+const { Image } = require("../../db/models");
 
 const router = express.Router();
 
@@ -22,10 +22,18 @@ router.get(
   })
 );
 
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const upload = await Image.create(req.body);
+    const image = await Image.findByPk(upload.id);
+    res.json(image);
+  })
+);
+
 router.delete(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    console.log(req.params.id)
     const image = await Image.findByPk(req.params.id);
     await image.destroy();
     res.status(202).end();
@@ -42,7 +50,6 @@ router.put(
     await imageToUpdate.update({
       description,
     });
-
 
     res.json(imageToUpdate);
   })

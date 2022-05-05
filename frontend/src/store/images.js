@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD = "images/lOAD";
 const DELETE = "images/DELETE";
 const EDIT = "images/EDIT";
+const UPLOAD = "images/UPLOAD";
 
 const load = (list) => ({
   type: LOAD,
@@ -16,13 +17,19 @@ const edit = (image) => {
   };
 };
 
-const deleteImg = (imageId, userId) => {
+const deleteImg = (imageId) => {
   return {
     type: DELETE,
     imageId,
-    userId
-  }
-}
+  };
+};
+
+const uploadImg = (image) => {
+  return {
+    type: UPLOAD,
+    image,
+  };
+};
 
 export const getImages = () => async (dispatch) => {
   const response = await csrfFetch("/api/images");
@@ -47,15 +54,27 @@ export const editImage = (data) => async (dispatch) => {
 };
 
 export const deleteImage = (data) => async (dispatch) => {
-  console.log('a', data)
   const res = await csrfFetch(`/api/images/${data}`, {
-    method: "DELETE"
-  })
-  console.log(data)
+    method: "DELETE",
+  });
+  console.log(data);
 
   if (res.ok) {
-    dispatch(deleteImg(data))
+    dispatch(deleteImg(data));
     return data;
+  }
+};
+
+export const uploadImage = (data) => async (dispatch) => {
+  const res = await csrfFetch('/api/images', {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    const image = await res.json();
+    dispatch(uploadImg(image));
+    return image;
   }
 }
 
@@ -64,10 +83,12 @@ const initialState = {
 };
 
 const sortList = (list) => {
-  return list.sort((imageA, imageB) => {
-    return imageA.number - imageB.number;
-  }).map((image) => image.id);
-}
+  return list
+    .sort((imageA, imageB) => {
+      return imageA.number - imageB.number;
+    })
+    .map((image) => image.id);
+};
 
 const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -88,6 +109,13 @@ const imagesReducer = (state = initialState, action) => {
     case DELETE: {
       const newState = { ...state };
       delete newState[action.image];
+      return newState;
+    }
+    case UPLOAD: {
+      const newState = {
+        ...state,
+        [action.image.id]: action.image,
+      }
       return newState;
     }
     default:

@@ -104,3 +104,7 @@
   left: 100px;
   height: 140px;
 }
+
+.infoContainer {
+  display: flex;
+}
