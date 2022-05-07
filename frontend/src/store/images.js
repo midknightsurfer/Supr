@@ -32,8 +32,9 @@ const uploadImg = (image) => {
 };
 
 export const getImages = () => async (dispatch) => {
+  
   const response = await csrfFetch("/api/images");
-
+console.log('frontend')
   if (response.ok) {
     const list = await response.json();
     dispatch(load(list));
@@ -108,7 +109,7 @@ const imagesReducer = (state = initialState, action) => {
     }
     case DELETE: {
       const newState = { ...state };
-      delete newState[action.image];
+      delete newState[action.imageId];
       return newState;
     }
     case UPLOAD: {

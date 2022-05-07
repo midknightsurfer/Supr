@@ -1,7 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
-import modalImg from '../assets/modal-spiderman.png';
 
 const ModalContext = React.createContext();
 
@@ -31,7 +30,6 @@ export function Modal({ onClose, children }) {
     <div id="modal">
       <div id="modal-background" onClick={onClose} />
       <div id="modal-content">
-        <img src={modalImg} className="modalImg" />
         {children}
       </div>
     </div>,

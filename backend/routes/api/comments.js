@@ -25,4 +25,13 @@ router.post(
   })
 );
 
+router.delete(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const comment = await Comment.findByPk(req.params.id);
+    await comment.destroy();
+    res.status(202).end();
+  })
+);
+
 module.exports = router;

@@ -1,8 +1,18 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
 const { Image } = require("../../db/models");
 
 const router = express.Router();
+
+const validateImage = [
+  check("imageURL")
+    .exists({ checkFalsy: true })
+    .isURL()
+    .withMessage("The provided image URL is invalid."),
+  handleValidationErrors,
+];
 
 router.get(
   "/",
@@ -16,6 +26,7 @@ router.get(
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
+    console.log('backend')
     const image = await Image.findByPk(req.params.id);
 
     res.json(image);

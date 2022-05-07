@@ -27,10 +27,6 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-#modal-content label {
-    color: yellow;
-}
-
 .modalImg {
   display: block;
   margin-left: auto;
@@ -52,13 +48,17 @@ form {
 
 }
 
-input {
+input, textarea {
   width: 100%;
   margin: 5px;
   height: 30px;
   border-radius: 5px;
   box-shadow: 2px 2px 6px rgb(19, 18, 18);
   padding: 10px;
+}
+
+textarea {
+  height: 60px;
 }
 
 form button {

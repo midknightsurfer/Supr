@@ -1,12 +1,25 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import modalImg from "../../assets/modal-spiderman.png";
 
-function LoginForm() {
+function LoginForm({ modal }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [showModal, setShowModal] = useState(true);
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+
+    setCredential("Demo-lition");
+    setPassword("password");
+
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,12 +33,13 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <form className="loginForm" onSubmit={handleSubmit}>
+      <ul className="errorsContainer">
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
+      <img src={modalImg} className="modalImg" />
       <label>
         Username or Email
         <input
@@ -45,6 +59,8 @@ function LoginForm() {
         />
       </label>
       <button type="submit">Log In</button>
+      <button onClick={demoLogin}>Demo</button>
+      <button onClick={() => showModal}>Cancel</button>
     </form>
   );
 }

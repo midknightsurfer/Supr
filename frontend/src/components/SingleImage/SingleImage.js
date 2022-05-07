@@ -3,12 +3,15 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteImage } from "../../store/images";
 import { editImage } from "../../store/images";
-import Comments from "../Comments"
+import Comments from "../Comments/Comments"
+import { useHistory } from "react-router-dom"
 
 const SingleImage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const imageId = useParams();
   const image = useSelector((state) => state.images[imageId.id]);
+  const sessionUser = useSelector((state) => state.session.user);
   const [editForm, setEditForm] = useState(false);
   const [description, setDescription] = useState(image.description);
 
@@ -16,6 +19,8 @@ const SingleImage = () => {
     e.preventDefault();
 
     dispatch(deleteImage(image.id));
+
+    history.push("/");
   };
 
   const submit = async (e) => {
@@ -29,6 +34,8 @@ const SingleImage = () => {
     };
 
     dispatch(editImage(payload));
+
+    setEditForm(!editForm)
   };
 
   return (
@@ -38,14 +45,18 @@ const SingleImage = () => {
       </div>
       <div className="infoContainer">
         <div className="descriptionContainer">{image.description}</div>
+        {sessionUser.id === image.userId ?
         <form onSubmit={handleSubmit}>
-          <button type="submit">Delete</button>
+          <button className="imageDeleteBtn" type="submit">Delete</button>
         </form>
-        <button onClick={() => setEditForm(!editForm)}>
-          {editForm ? "Hide" : "Show"}
+                : ""}
+        {sessionUser.id === image.userId ?        
+        <button className="imageEditBtn" onClick={() => setEditForm(!editForm)}>
+          {editForm ? "Cancel" : "Edit"}
         </button>
+        : ""}
         {editForm && (
-          <form onSubmit={submit}>
+          <form className="editForm" onSubmit={submit}>
             <textarea
               id="editBox"
               name="description"
@@ -54,13 +65,12 @@ const SingleImage = () => {
             >
               {image.description}
             </textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" className="submitBtn" >Submit</button>
           </form>
         )}
-        <div className="commentsContainer"></div>
+
         <Comments image={image} />
       </div>
-      
     </div>
   );
 };

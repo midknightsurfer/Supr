@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
-import UserProfile from "./components/UserProfile";
-import SingleImage from "./components/SingleImage";
+import {
+  SignupFormPage,
+  Navigation,
+  Footer,
+  UserProfile,
+  SingleImage,
+} from "./components";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -48,14 +50,9 @@ function App() {
         </li>
       </ul>
     );
-  }
-
-  return (
-    <>
-      {splash}
-      <Navigation isLoaded={isLoaded} />
-        <Footer />
-      {isLoaded && (
+  } else {
+    // eslint-disable-next-line no-lone-blocks
+    splash = isLoaded && (
         <Switch>
           <Route exact path="/">
             <UserProfile />
@@ -63,11 +60,18 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/image/:id">
-        <SingleImage />
-      </Route>
+          <Route path="/images/:id">
+            <SingleImage />
+          </Route>
         </Switch>
-      )}
+      );
+    }
+
+  return (
+    <>
+      {splash}
+      <Navigation isLoaded={isLoaded} />
+      <Footer />
     </>
   );
 }

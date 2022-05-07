@@ -4,7 +4,7 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50vh;
+  margin-top: 200px;
 }
 
 .imgContainer img {
@@ -20,4 +20,41 @@
 
 .imgContainer img:hover {
   opacity: 0.8;
+}
+
+.imgProfile img {
+  width: 20vw;
+  height: 10vh;
+  object-fit: cover;
+  border: 2px solid;
+  border-radius: 0 50px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px;
+  margin: 10px;
+}
+
+.userProfile {
+  display: flex;  
+  justify-content: center;
+  margin-top: 500px;
+  border: 2px solid;
+  border-radius: 20px;
+  color: blue;
+  position: relative;
+  overflow-x: scroll;
+  height: 150px;
+}
+
+.userUpload {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  margin-top: -600px;
+}
+
+.userImgTitle {
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 25px;
+  color: blue;
 }
