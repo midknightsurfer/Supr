@@ -3,4 +3,4 @@
 [Live Link](https://suprheroes.herokuapp.com/)
 
 - Documentation Index
--  1. Feature List
+  1. Feature List
