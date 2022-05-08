@@ -2,7 +2,7 @@
 
 [Live Link](https://suprheroes.herokuapp.com/)
 
-- **Technologies Used
+- **Technologies Used**
   1. Reactjs
   2. Redux
   3. Javascript
@@ -11,7 +11,7 @@
   6. Sequelize
   7. Adobe Photoshop
 
-- **Documentation Index
+- **Documentation Index**
   1. [Feature List](https://github.com/midknightsurfer/Supr/wiki/MVP-List)
   2. [Database Schema](https://github.com/midknightsurfer/Supr/wiki/DB-Schema)
   3. [Routes](https://github.com/midknightsurfer/Supr/wiki/Routes)
