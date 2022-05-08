@@ -12,9 +12,9 @@
   7. Adobe Photoshop
 
 - **Documentation Index
-  1. Feature List
-  2. Database Schema
-  3. Routes
+  1. [Feature List](https://github.com/midknightsurfer/Supr/wiki/MVP-List)
+  2. [Database Schema](https://github.com/midknightsurfer/Supr/wiki/DB-Schema)
+  3. [Routes](https://github.com/midknightsurfer/Supr/wiki/Routes)
 
 - **Summary**
   This website is a demonstration of the powerful relationship between React components and a Redux store. A dynamic assortment of fascinating imagery of everybody's favorite superheroes.
@@ -25,3 +25,5 @@
 
 - **Future Features**
   - [ ] Filter/searching function
+  - [ ] Favorite images system
+  - [ ] Responsive design
