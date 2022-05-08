@@ -27,3 +27,4 @@
   - [ ] Filter/searching function
   - [ ] Favorite images system
   - [ ] Responsive design
+  - [ ] AWS S3 Image Storage
