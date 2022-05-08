@@ -24,4 +24,4 @@
   After you are logged in you can upload images of your own by link. Images you upload are presented in the "Your Images" area. You can dynamically open each photo's page and here you can delete images, edit descriptions or leave comments (which can also be deleted).
 
 - **Future Features**
-  [ ] Filter/searching function
+  1. [-] Filter/searching function
