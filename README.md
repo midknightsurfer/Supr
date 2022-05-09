@@ -13,7 +13,7 @@
 
 - **Documentation Index**
   1. [Feature List](https://github.com/midknightsurfer/Supr/wiki/MVP-List)
-  2. [Database Schema](https://github.com/midknightsurfer/Supr/wiki/DB-Schema)
+  2. [Database Schema](https://dbdiagram.io/d/624b73e8d043196e39f4dafd)
   3. [Routes](https://github.com/midknightsurfer/Supr/wiki/Routes)
 
 - **Summary**
