@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadImage } from "../../store/images";
 
@@ -8,6 +8,7 @@ const Upload = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,17 +20,21 @@ const Upload = () => {
       userId: sessionUser.id,
     };
 
-    dispatch(uploadImage(payload));
+    if (!imageUrl.length || !imageUrl.match(/^https?:\/\/.+\/.+$/)) {
+      alert('Your photo could not be saved')
+    } else {
+      dispatch(uploadImage(payload));
+    }
+
+
 
     setDescription(() => "")
     setImageUrl(() => "")
     setTags(() => "")    
-
   };
 
   return (
     <div>
-      <h2>Profile</h2>
       <form onSubmit={submitHandler}>
         <h2>Upload your own Images</h2>
         <label>Image Url</label>

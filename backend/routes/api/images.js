@@ -26,7 +26,6 @@ router.get(
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    console.log('backend')
     const image = await Image.findByPk(req.params.id);
 
     res.json(image);
@@ -35,7 +34,7 @@ router.get(
 
 router.post(
   "/",
-  asyncHandler(async (req, res) => {
+    asyncHandler(async (req, res) => {
     const upload = await Image.create(req.body);
     const image = await Image.findByPk(upload.id);
     res.json(image);
